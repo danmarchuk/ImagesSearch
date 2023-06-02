@@ -30,15 +30,24 @@ class ViewController: UIViewController {
         
         // Remove the opaque background view
         searchBar.backgroundImage = UIImage()
-
-        // Optional: You may want to make the text field inside the search bar transparent as well
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = UIColor.clear
         }
-        imageManager.fetchImages(userInput: "go")
+        imageManager.fetchImages(using: "go")
     }
 
-
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "fromMainToSearchResults", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromMainToSearchResults" {
+            if let destinationViewController = segue.destination as? SearchResultsViewController,
+            let text = searchBar.text {
+                destinationViewController.userInput = text
+            }
+        }
+    }
 }
 
 extension ViewController: UISearchBarDelegate {

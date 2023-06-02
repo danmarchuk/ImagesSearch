@@ -38,9 +38,6 @@
                                 <buttonConfiguration key="configuration" style="filled" image="link" catalog="system">
                                     <color key="baseForegroundColor" name="purpleSearch"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="shareLinkButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Jxn-Kn-6iC"/>
-                                </connections>
                             </button>
                         </subviews>
                     </stackView>

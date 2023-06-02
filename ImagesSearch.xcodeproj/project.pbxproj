@@ -20,6 +20,7 @@
 		937C18EE2A1E5ACD00516A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C18EC2A1E5ACD00516A77 /* Main.storyboard */; };
 		937C18F02A1E5ACE00516A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937C18EF2A1E5ACE00516A77 /* Assets.xcassets */; };
 		937C18F32A1E5ACE00516A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C18F12A1E5ACE00516A77 /* LaunchScreen.storyboard */; };
+		93D556762A2664C1001141E0 /* ImagePaigeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		937C18EF2A1E5ACE00516A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		937C18F22A1E5ACE00516A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		937C18F42A1E5ACE00516A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaigeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				937C18EA2A1E5ACD00516A77 /* ViewController.swift */,
 				935A07532A210F6B00D617B4 /* SearchResultsViewController.swift */,
 				937C18EC2A1E5ACD00516A77 /* Main.storyboard */,
+				93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */,
 				937C18EF2A1E5ACE00516A77 /* Assets.xcassets */,
 				935A074F2A21089600D617B4 /* ImageManager.swift */,
 				935A07512A210B3D00D617B4 /* ImagesData.swift */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				937C18EB2A1E5ACD00516A77 /* ViewController.swift in Sources */,
+				93D556762A2664C1001141E0 /* ImagePaigeViewController.swift in Sources */,
 				935A07502A21089600D617B4 /* ImageManager.swift in Sources */,
 				937C18E72A1E5ACD00516A77 /* AppDelegate.swift in Sources */,
 				935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */,

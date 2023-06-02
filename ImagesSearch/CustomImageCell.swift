@@ -20,6 +20,4 @@ class CustomImageCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBAction func shareLimmnkButton(_ sender: UIButton) {
-    }
 }

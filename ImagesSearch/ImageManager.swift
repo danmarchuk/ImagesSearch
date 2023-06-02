@@ -19,9 +19,8 @@ class ImageManager {
     let imagesURL = "https://pixabay.com/api/?key=36723151-a2882345da062400f93be5818&image_type=photo&pretty=true"
     var delegate: ImageManagerDelegate?
     
-    func fetchImages(userInput: String){
-//        let urlString = "\(imagesURL)&q=\(userInput)"
-        let urlString = "\(imagesURL)&q=yellow+flowers"
+    func fetchImages(using userInput: String){
+        let urlString = "\(imagesURL)&q=\(userInput)"
         performRequest(with: urlString)
     }
     
@@ -56,7 +55,6 @@ class ImageManager {
             for hit in hits {
                 imagesArray.append(hit.webformatURL)
             }
-            print(imagesArray)
             return imagesArray
         } catch {
             delegate?.didFailWithError(error: error)
