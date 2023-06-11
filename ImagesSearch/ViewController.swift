@@ -18,13 +18,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        roundView.layer.cornerRadius = 5
+        roundView.layer.cornerRadius = 7
         if #available(iOS 13.0, *) {
             roundView.backgroundColor = .systemGray4
         } else {
             // Fallback on earlier versions
         }
-        searchButton.layer.cornerRadius = 5
+        searchButton.layer.cornerRadius = 7
         searchBar.delegate = self
 //        searchBar.barTintColor =  .clear
         
@@ -34,6 +34,15 @@ class ViewController: UIViewController {
             textField.backgroundColor = UIColor.clear
         }
         imageManager.fetchImages(using: "go")
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true) // Dismiss the keyboard
+        // Replace 'textField' with the actual reference to your text field
+        searchBar.resignFirstResponder() // Deselect the text field
     }
 
     @IBAction func searchButtonTapped(_ sender: UIButton) {

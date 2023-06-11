@@ -15,16 +15,29 @@ class SearchResultsViewController: UIViewController {
     var imagesArr: [String] = []
     let imageManager = ImageManager()
     var selectedImageUrl: String = ""
-
+    @IBOutlet weak var roundView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var pButton: UIButton!
     
+    @IBOutlet weak var settingsButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         imageManager.fetchImages(using: userInput)
+        searchBar.delegate = self
         imageManager.delegate = self
         let nib = UINib(nibName: "CustomImageCell", bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        pButton.customizeButton()
+        
+        roundView.roundGrayView()
+        searchBar.delegate = self
+        
+        // Remove the opaque background view
+        searchBar.makeTransparent()
+        settingsButton.setTitle("", for: .normal)
+        settingsButton.addBorder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,16 +52,17 @@ class SearchResultsViewController: UIViewController {
 
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        imagesArr.count
+        return imagesArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomImageCell.identifier, for: indexPath) as? CustomImageCell else {
             fatalError("Could not dequeue CustomImageCell")
         }
-        
         let imageURL = imagesArr[indexPath.row]
         cell.imageView?.sd_setImage(with: URL(string: imageURL), completed: nil)
+        
+        cell.imageView.layer.cornerRadius = 7
         
         return cell
     }
@@ -59,6 +73,8 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         imagesArr.remove(at: selectedItem)
         performSegue(withIdentifier: "fromSearchResultsToImagePaige", sender: self)
     }
+    
+
 }
 extension SearchResultsViewController: ImageManagerDelegate {
     func didLoadImages(_ manager: ImageManager, images: [String]) {
@@ -70,4 +86,20 @@ extension SearchResultsViewController: ImageManagerDelegate {
     
     func didFailWithError(error: Error) {
     }
+}
+
+extension SearchResultsViewController: UISearchBarDelegate {
+    
+}
+
+extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let leftAndRightPaddings: CGFloat = 0
+        let numberOfItemsPerRow: CGFloat = 1
+
+        let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
+        return CGSize(width: width, height: 250) // You can change width and height here as per your requirement
+
+    }
+    
 }

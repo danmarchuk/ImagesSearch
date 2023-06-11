@@ -21,6 +21,7 @@
 		937C18F02A1E5ACE00516A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937C18EF2A1E5ACE00516A77 /* Assets.xcassets */; };
 		937C18F32A1E5ACE00516A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937C18F12A1E5ACE00516A77 /* LaunchScreen.storyboard */; };
 		93D556762A2664C1001141E0 /* ImagePaigeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */; };
+		93FACFCC2A2A67D2000538D6 /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FACFCB2A2A67D2000538D6 /* Customization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		937C18F22A1E5ACE00516A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		937C18F42A1E5ACE00516A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaigeViewController.swift; sourceTree = "<group>"; };
+		93FACFCB2A2A67D2000538D6 /* Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				937C18E82A1E5ACD00516A77 /* SceneDelegate.swift */,
 				937C18EA2A1E5ACD00516A77 /* ViewController.swift */,
 				935A07532A210F6B00D617B4 /* SearchResultsViewController.swift */,
+				93FACFCB2A2A67D2000538D6 /* Customization.swift */,
 				937C18EC2A1E5ACD00516A77 /* Main.storyboard */,
 				93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */,
 				937C18EF2A1E5ACE00516A77 /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 				937C18E72A1E5ACD00516A77 /* AppDelegate.swift in Sources */,
 				935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */,
 				937C18E92A1E5ACD00516A77 /* SceneDelegate.swift in Sources */,
+				93FACFCC2A2A67D2000538D6 /* Customization.swift in Sources */,
 				935A07542A210F6B00D617B4 /* SearchResultsViewController.swift in Sources */,
 				935A07522A210B3D00D617B4 /* ImagesData.swift in Sources */,
 			);
