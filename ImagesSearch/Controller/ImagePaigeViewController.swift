@@ -47,6 +47,13 @@ class ImagePaigeViewController: UIViewController {
         FuncManager.shareMessage(clickedImageUrl, on: self)
     }
     
+    @IBAction func zoomButtonClicked(_ sender: UIButton) {
+        let imageViewController = ZoomViewController()
+        imageViewController.imageURL = clickedImageUrl
+
+        // Present the image view controller
+        self.navigationController?.pushViewController(imageViewController, animated: true)
+    }
 }
 
 extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -59,8 +66,7 @@ extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomImageCell.identifier, for: indexPath) as? CustomImageCell else {
             fatalError("Could not dequeue CustomImageCell")
         }
-        // Reset the cell's state and content
-//        cell.imageView?.image = nil
+
         cell.buttonOutlet.isHidden = true
         
         let imageURL = imagesArr[indexPath.row]
