@@ -61,9 +61,11 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         }
         let imageURL = imagesArr[indexPath.row]
         cell.imageView?.sd_setImage(with: URL(string: imageURL), completed: nil)
-        
         cell.imageView.layer.cornerRadius = 7
-        
+        cell.buttonCallback = {
+            FuncManager.shareMessage(self.imagesArr[indexPath.row], on: self)
+        }
+
         return cell
     }
     
@@ -99,7 +101,5 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
 
         let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
         return CGSize(width: width, height: 250) // You can change width and height here as per your requirement
-
     }
-    
 }

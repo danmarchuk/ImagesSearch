@@ -19,7 +19,7 @@ class ImagePaigeViewController: UIViewController {
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var pButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    
+    @IBOutlet weak var zoomButtonOutlet: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         mainImage.sd_setImage(with: URL(string: clickedImageUrl))
@@ -39,6 +39,12 @@ class ImagePaigeViewController: UIViewController {
         settingsButton.addBorder()
         shareButton.addBlueBorder()
         
+        zoomButtonOutlet.setTitle("", for: .normal)
+        
+    }
+    
+    @IBAction func shareButton(_ sender: UIButton) {
+        FuncManager.shareMessage(clickedImageUrl, on: self)
     }
     
 }
@@ -68,7 +74,7 @@ extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension ImagePaigeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftAndRightPaddings: CGFloat = 45.0
+        let leftAndRightPaddings: CGFloat = 10.0
         let numberOfItemsPerRow: CGFloat = 2.0
         let height: CGFloat = 122.0
         

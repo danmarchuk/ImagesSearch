@@ -31,9 +31,10 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="share">
-                                    <color key="baseForegroundColor" name="purpleSearch"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="filled" image="share"/>
+                                <connections>
+                                    <action selector="shareButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="B8B-Go-pQn"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>
@@ -60,8 +61,5 @@
     <resources>
         <image name="forest" width="1200" height="900"/>
         <image name="share" width="14" height="16"/>
-        <namedColor name="purpleSearch">
-            <color red="0.2627450980392157" green="0.039215686274509803" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

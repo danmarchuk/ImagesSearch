@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93190C402A3A77E900B80290 /* FuncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93190C3F2A3A77E900B80290 /* FuncManager.swift */; };
 		935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A07462A2100F900D617B4 /* CustomImageCell.swift */; };
 		935A07492A2100F900D617B4 /* CustomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935A07472A2100F900D617B4 /* CustomImageCell.xib */; };
 		935A074C2A2106C400D617B4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 935A074B2A2106C400D617B4 /* SDWebImage */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93190C3F2A3A77E900B80290 /* FuncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncManager.swift; sourceTree = "<group>"; };
 		935A07462A2100F900D617B4 /* CustomImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageCell.swift; sourceTree = "<group>"; };
 		935A07472A2100F900D617B4 /* CustomImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomImageCell.xib; sourceTree = "<group>"; };
 		935A074F2A21089600D617B4 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				937C18EA2A1E5ACD00516A77 /* ViewController.swift */,
 				935A07532A210F6B00D617B4 /* SearchResultsViewController.swift */,
 				93FACFCB2A2A67D2000538D6 /* Customization.swift */,
+				93190C3F2A3A77E900B80290 /* FuncManager.swift */,
 				937C18EC2A1E5ACD00516A77 /* Main.storyboard */,
 				93D556752A2664C1001141E0 /* ImagePaigeViewController.swift */,
 				937C18EF2A1E5ACE00516A77 /* Assets.xcassets */,
@@ -178,6 +181,7 @@
 				935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */,
 				937C18E92A1E5ACD00516A77 /* SceneDelegate.swift in Sources */,
 				93FACFCC2A2A67D2000538D6 /* Customization.swift in Sources */,
+				93190C402A3A77E900B80290 /* FuncManager.swift in Sources */,
 				935A07542A210F6B00D617B4 /* SearchResultsViewController.swift in Sources */,
 				935A07522A210B3D00D617B4 /* ImagesData.swift in Sources */,
 			);
