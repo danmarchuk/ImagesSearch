@@ -38,7 +38,6 @@ final class SearchResultsViewController: UIViewController {
     func uiSetup() {
         pButton.customizeButton()
         roundView.roundGrayView()
-        // Remove the opaque background view
         
         settingsButton.setTitle("", for: .normal)
         settingsButton.addBorder()
