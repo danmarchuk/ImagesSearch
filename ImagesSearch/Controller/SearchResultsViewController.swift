@@ -117,14 +117,14 @@ extension SearchResultsViewController: UISearchBarDelegate {
 
 extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var numberOfItemsPerRow: CGFloat = 1
-        let heightOfTheCell: CGFloat = 250
+        var numberOfItemsPerRow: CGFloat = 1.0
+        let heightOfTheCell: CGFloat = 250.0
         let orientation = UIApplication.shared.statusBarOrientation
-        let leftAndRightPaddings: CGFloat = 10
+        let leftAndRightPaddings: CGFloat = 15.0
         if orientation == .portrait {
-            numberOfItemsPerRow  = 1
+            numberOfItemsPerRow  = 1.0
         } else {
-            numberOfItemsPerRow = 2
+            numberOfItemsPerRow = 2.0
         }
         let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
         return CGSize(width: width, height: heightOfTheCell)
