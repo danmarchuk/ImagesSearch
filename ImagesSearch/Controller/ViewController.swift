@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var roundView: UIView!
@@ -36,7 +36,7 @@ final class ViewController: UIViewController {
         view.endEditing(true) // Dismiss the keyboard
         searchBar.resignFirstResponder() // Deselect the text field
     }
-
+    
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "fromMainToSearchResults", sender: self)
     }
@@ -44,7 +44,7 @@ final class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromMainToSearchResults" {
             if let destinationViewController = segue.destination as? SearchResultsViewController,
-            let text = searchBar.text {
+               let text = searchBar.text {
                 destinationViewController.userInput = text
             }
         }

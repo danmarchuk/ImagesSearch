@@ -29,17 +29,17 @@ final class SearchResultsViewController: UIViewController {
         // setup delegates
         delegatesAndDataSourceSetup()
         
-        viewSetup()
+        uiSetup()
         
         let nib = UINib(nibName: "CustomImageCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
     }
     
-    func viewSetup() {
+    func uiSetup() {
         pButton.customizeButton()
         roundView.roundGrayView()
         // Remove the opaque background view
-
+        
         settingsButton.setTitle("", for: .normal)
         settingsButton.addBorder()
         
@@ -124,10 +124,10 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
         if orientation == .portrait {
             numberOfItemsPerRow  = 1
         } else {
-        numberOfItemsPerRow = 2
+            numberOfItemsPerRow = 2
         }
         let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
-        return CGSize(width: width, height: heightOfTheCell) // You can change width and height here as per your requirement
+        return CGSize(width: width, height: heightOfTheCell)
     }
 }
 

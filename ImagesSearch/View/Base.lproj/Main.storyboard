@@ -44,23 +44,23 @@
                                         <rect key="frame" x="20" y="392" width="353" height="52"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-9l-juZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="52"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="52"/>
                                                 <subviews>
                                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fnA-qf-itH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="52"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="251.66666666666666" height="52"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="BDW-JI-iVA"/>
                                                         </connections>
                                                     </searchBar>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XM3-F2-Tud">
-                                                        <rect key="frame" x="264.66666666666669" y="0.0" width="79.333333333333314" height="52"/>
+                                                        <rect key="frame" x="251.66666666666671" y="0.0" width="79.333333333333343" height="52"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Images"/>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="3F6-Dx-zAe">
-                                                        <rect key="frame" x="344" y="0.0" width="9" height="52"/>
+                                                        <rect key="frame" x="331" y="0.0" width="9" height="52"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                     </imageView>
                                                 </subviews>
@@ -68,7 +68,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Viv-9l-juZ" secondAttribute="trailing" id="B2t-sB-SbL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Viv-9l-juZ" secondAttribute="trailing" constant="13" id="B2t-sB-SbL"/>
                                             <constraint firstItem="Viv-9l-juZ" firstAttribute="top" secondItem="NcX-WF-tq9" secondAttribute="top" id="FW8-eG-qRk"/>
                                             <constraint firstAttribute="bottom" secondItem="Viv-9l-juZ" secondAttribute="bottom" id="OJN-18-rXD"/>
                                             <constraint firstItem="Viv-9l-juZ" firstAttribute="leading" secondItem="NcX-WF-tq9" secondAttribute="leading" id="Vfw-q0-cQL"/>

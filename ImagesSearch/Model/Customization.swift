@@ -13,7 +13,7 @@ extension UIButton {
         self.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 56)
         self.tintColor = .white
         self.backgroundColor = UIColor(named: "purpleSearch")
-        self.layer.cornerRadius = 10 // change "10" to the radius you want
+        self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
     

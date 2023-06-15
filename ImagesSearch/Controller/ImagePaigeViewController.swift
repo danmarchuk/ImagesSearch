@@ -10,9 +10,8 @@ import UIKit
 import SDWebImage
 
 protocol ImagePaigeDelegate: AnyObject {
-    func updateVariable(newVariable: String) // replace 'Any' with the actual type of your variable
+    func updateVariable(newVariable: String)
 }
-
 
 final class ImagePaigeViewController: UIViewController {
     
@@ -32,23 +31,28 @@ final class ImagePaigeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainImage.sd_setImage(with: URL(string: clickedImageUrl))
-        collectionView.delegate = self
-        collectionView.dataSource = self
         let nib = UINib(nibName: "CustomImageCell", bundle: nil)
-            collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
+        collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
+        uiSetup()
+        delegatesAndDataSourceSetup()
+    }
+    
+    func uiSetup() {
         pButton.customizeButton()
-        searchBar.delegate = self
         searchBar.text = userInput
         roundView.roundGrayView()
-        searchBar.delegate = self
-        
-        // Remove the opaque background view
         searchBar.makeTransparent()
         settingsButton.setTitle("", for: .normal)
         settingsButton.addBorder()
         shareButton.addBlueBorder()
         zoomButtonOutlet.setTitle("", for: .normal)
+        mainImage.sd_setImage(with: URL(string: clickedImageUrl))
+    }
+    
+    func delegatesAndDataSourceSetup() {
+        searchBar.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     @IBAction func shareButton(_ sender: UIButton) {
@@ -64,7 +68,7 @@ final class ImagePaigeViewController: UIViewController {
     @IBAction func zoomButtonClicked(_ sender: UIButton) {
         let imageViewController = ZoomViewController()
         imageViewController.imageURL = clickedImageUrl
-
+        
         // Present the image view controller
         self.navigationController?.pushViewController(imageViewController, animated: true)
     }
@@ -79,7 +83,7 @@ extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomImageCell.identifier, for: indexPath) as? CustomImageCell else {
             fatalError("Could not dequeue CustomImageCell")
         }
-
+        
         cell.buttonOutlet.isHidden = true
         
         let imageURL = imagesArr[indexPath.row]
