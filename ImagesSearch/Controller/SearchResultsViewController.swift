@@ -14,6 +14,7 @@ class SearchResultsViewController: UIViewController {
     lazy var userInput: String = ""
     var imagesArr: [String] = []
     let imageManager = ImageManager()
+    let imagePageViewController = ImagePaigeViewController()
     var selectedImageUrl: String = ""
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -22,9 +23,14 @@ class SearchResultsViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageManager.fetchImages(using: userInput)
+        // fetch images using the user's input from the previous VC
+        imageManager.fetchImages(using: userInput.replacingOccurrences(of: " ", with: "+"))
         searchBar.delegate = self
+        
+        // set the user input as the searchBar text
+        searchBar.text = userInput
         imageManager.delegate = self
+        imagePageViewController.delegate = self
         let nib = UINib(nibName: "CustomImageCell", bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
         collectionView.delegate = self
@@ -44,6 +50,8 @@ class SearchResultsViewController: UIViewController {
         if segue.identifier == "fromSearchResultsToImagePaige" {
             if let destinationViewController = segue.destination as? ImagePaigeViewController {
                 destinationViewController.imagesArr = imagesArr
+                destinationViewController.delegate = self
+                destinationViewController.userInput = searchBar.text ?? ""
                 destinationViewController.clickedImageUrl = selectedImageUrl
             }
         }
@@ -65,7 +73,6 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         cell.buttonCallback = {
             FuncManager.shareMessage(self.imagesArr[indexPath.row], on: self)
         }
-
         return cell
     }
     
@@ -76,8 +83,27 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         performSegue(withIdentifier: "fromSearchResultsToImagePaige", sender: self)
     }
     
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+//        updateCollectionViewLayout()
+    }
+    
+    func updateCollectionViewLayout() {
+        let orientation = UIApplication.shared.statusBarOrientation
+        let layout = UICollectionViewFlowLayout()
+        
+        if orientation == .portrait {
+            layout.itemSize = CGSize(width: collectionView.frame.width, height: 100) // Adjust as needed
+        } else {
+            // In landscape orientation, make the width half of the collection view's width, resulting in 2 cells per row
+            layout.itemSize = CGSize(width: collectionView.frame.width / 2, height: 100) // Adjust as needed
+        }
+        
+        collectionView.setCollectionViewLayout(layout, animated: true)
+    }
 }
+
+
 extension SearchResultsViewController: ImageManagerDelegate {
     func didLoadImages(_ manager: ImageManager, images: [String]) {
         DispatchQueue.main.async {
@@ -91,15 +117,32 @@ extension SearchResultsViewController: ImageManagerDelegate {
 }
 
 extension SearchResultsViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarInput = searchBar.text else {return}
+        imageManager.fetchImages(using: searchBarInput.replacingOccurrences(of: " ", with: "+"))
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftAndRightPaddings: CGFloat = 0
-        let numberOfItemsPerRow: CGFloat = 1
-
+        var numberOfItemsPerRow: CGFloat = 1
+        var heightOfTheCell: CGFloat = 250
+        let orientation = UIApplication.shared.statusBarOrientation
+        let leftAndRightPaddings: CGFloat = 10
+        if orientation == .portrait {
+            numberOfItemsPerRow  = 1
+        } else {
+        numberOfItemsPerRow = 2
+        }
         let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
-        return CGSize(width: width, height: 250) // You can change width and height here as per your requirement
+        return CGSize(width: width, height: heightOfTheCell) // You can change width and height here as per your requirement
+    }
+}
+
+extension SearchResultsViewController: ImagePaigeDelegate {
+    func updateVariable(newVariable: String) {
+        searchBar.text = newVariable
+        imageManager.fetchImages(using: newVariable.replacingOccurrences(of: " ", with: "+"))
     }
 }

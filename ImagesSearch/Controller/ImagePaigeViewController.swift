@@ -9,9 +9,18 @@ import Foundation
 import UIKit
 import SDWebImage
 
+protocol ImagePaigeDelegate: AnyObject {
+    func updateVariable(newVariable: String) // replace 'Any' with the actual type of your variable
+}
+
+
 class ImagePaigeViewController: UIViewController {
+    
     var imagesArr: [String] = []
     lazy var clickedImageUrl: String = ""
+    lazy var userInput: String = ""
+    let imageManager = ImageManager()
+    weak var delegate: ImagePaigeDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -20,6 +29,7 @@ class ImagePaigeViewController: UIViewController {
     @IBOutlet weak var pButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var zoomButtonOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainImage.sd_setImage(with: URL(string: clickedImageUrl))
@@ -29,7 +39,7 @@ class ImagePaigeViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
         pButton.customizeButton()
         searchBar.delegate = self
-        
+        searchBar.text = userInput
         roundView.roundGrayView()
         searchBar.delegate = self
         
@@ -40,11 +50,16 @@ class ImagePaigeViewController: UIViewController {
         shareButton.addBlueBorder()
         
         zoomButtonOutlet.setTitle("", for: .normal)
-        
     }
     
     @IBAction func shareButton(_ sender: UIButton) {
         FuncManager.shareMessage(clickedImageUrl, on: self)
+    }
+    
+    @IBAction func downloadButtonClicked(_ sender: UIButton) {
+        if let image = mainImage.image {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
     }
     
     @IBAction func zoomButtonClicked(_ sender: UIButton) {
@@ -59,7 +74,6 @@ class ImagePaigeViewController: UIViewController {
 extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesArr.count
-
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,7 +87,6 @@ extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDa
         if let imageView = cell.imageView {
             imageView.sd_setImage(with: URL(string: imageURL))
         }
-        
         return cell
     }
 }
@@ -85,12 +98,15 @@ extension ImagePaigeViewController: UICollectionViewDelegateFlowLayout {
         let height: CGFloat = 122.0
         
         let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
-        return CGSize(width: width, height: height) // You can change width and height here as pr your requirement
+        return CGSize(width: width, height: height)
     }
-    
 }
 
 extension ImagePaigeViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarInput = searchBar.text else {return}
+        delegate?.updateVariable(newVariable: searchBarInput)
+        searchBar.resignFirstResponder()
+        self.navigationController?.popViewController(animated: true)
+    }
 }
-

@@ -47,20 +47,20 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="52"/>
                                                 <subviews>
                                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fnA-qf-itH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="52"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="52"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="BDW-JI-iVA"/>
                                                         </connections>
                                                     </searchBar>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XM3-F2-Tud">
-                                                        <rect key="frame" x="353" y="0.0" width="0.0" height="52"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XM3-F2-Tud">
+                                                        <rect key="frame" x="264.66666666666669" y="0.0" width="79.333333333333314" height="52"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Images"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3F6-Dx-zAe">
-                                                        <rect key="frame" x="353" y="5.3333333333333321" width="0.0" height="42"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="3F6-Dx-zAe">
+                                                        <rect key="frame" x="344" y="0.0" width="9" height="52"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                     </imageView>
                                                 </subviews>
@@ -425,6 +425,9 @@
                                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="baseBackgroundColor" name="purpleSearch"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="downloadButtonClicked:" destination="7qs-UH-9CP" eventType="touchUpInside" id="fzY-1J-L2T"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -517,7 +520,7 @@
     </scenes>
     <resources>
         <image name="P" width="19" height="24"/>
-        <image name="chevron.down" catalog="system" width="128" height="70"/>
+        <image name="downArrow" width="9" height="5.3333334922790527"/>
         <image name="download" width="13.666666984558105" height="16"/>
         <image name="grayforeground" width="375" height="812"/>
         <image name="lighthouse" width="375" height="812"/>
