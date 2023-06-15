@@ -14,7 +14,7 @@ protocol ImagePaigeDelegate: AnyObject {
 }
 
 
-class ImagePaigeViewController: UIViewController {
+final class ImagePaigeViewController: UIViewController {
     
     var imagesArr: [String] = []
     lazy var clickedImageUrl: String = ""
@@ -48,7 +48,6 @@ class ImagePaigeViewController: UIViewController {
         settingsButton.setTitle("", for: .normal)
         settingsButton.addBorder()
         shareButton.addBlueBorder()
-        
         zoomButtonOutlet.setTitle("", for: .normal)
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ZoomViewController: UIViewController, UIScrollViewDelegate {
+final class ZoomViewController: UIViewController, UIScrollViewDelegate {
     
     var scrollView: UIScrollView!
     var imageView: UIImageView!

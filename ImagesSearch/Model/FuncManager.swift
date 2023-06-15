@@ -14,5 +14,4 @@ struct FuncManager {
         let activityController = UIActivityViewController(activityItems: [message], applicationActivities: nil)
         viewController.present(activityController, animated: true)
     }
-    
 }

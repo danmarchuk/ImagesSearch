@@ -15,7 +15,7 @@ protocol ImageManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-class ImageManager {
+final class ImageManager {
     let imagesURL = "https://pixabay.com/api/?key=36723151-a2882345da062400f93be5818&image_type=photo&pretty=true"
     var delegate: ImageManagerDelegate?
     

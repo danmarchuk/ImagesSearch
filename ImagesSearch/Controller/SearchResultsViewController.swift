@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class SearchResultsViewController: UIViewController {
+final class SearchResultsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     lazy var userInput: String = ""
     var imagesArr: [String] = []
@@ -25,25 +25,35 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLoad()
         // fetch images using the user's input from the previous VC
         imageManager.fetchImages(using: userInput.replacingOccurrences(of: " ", with: "+"))
-        searchBar.delegate = self
+        
+        // setup delegates
+        delegatesAndDataSourceSetup()
+        
+        viewSetup()
+        
+        let nib = UINib(nibName: "CustomImageCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
+    }
+    
+    func viewSetup() {
+        pButton.customizeButton()
+        roundView.roundGrayView()
+        // Remove the opaque background view
+
+        settingsButton.setTitle("", for: .normal)
+        settingsButton.addBorder()
         
         // set the user input as the searchBar text
         searchBar.text = userInput
-        imageManager.delegate = self
-        imagePageViewController.delegate = self
-        let nib = UINib(nibName: "CustomImageCell", bundle: nil)
-            collectionView.register(nib, forCellWithReuseIdentifier: CustomImageCell.identifier)
+        searchBar.makeTransparent()
+    }
+    
+    func delegatesAndDataSourceSetup() {
+        searchBar.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        pButton.customizeButton()
-        
-        roundView.roundGrayView()
-        searchBar.delegate = self
-        
-        // Remove the opaque background view
-        searchBar.makeTransparent()
-        settingsButton.setTitle("", for: .normal)
-        settingsButton.addBorder()
+        imageManager.delegate = self
+        imagePageViewController.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,25 +92,6 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         imagesArr.remove(at: selectedItem)
         performSegue(withIdentifier: "fromSearchResultsToImagePaige", sender: self)
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-//        updateCollectionViewLayout()
-    }
-    
-    func updateCollectionViewLayout() {
-        let orientation = UIApplication.shared.statusBarOrientation
-        let layout = UICollectionViewFlowLayout()
-        
-        if orientation == .portrait {
-            layout.itemSize = CGSize(width: collectionView.frame.width, height: 100) // Adjust as needed
-        } else {
-            // In landscape orientation, make the width half of the collection view's width, resulting in 2 cells per row
-            layout.itemSize = CGSize(width: collectionView.frame.width / 2, height: 100) // Adjust as needed
-        }
-        
-        collectionView.setCollectionViewLayout(layout, animated: true)
-    }
 }
 
 
@@ -127,7 +118,7 @@ extension SearchResultsViewController: UISearchBarDelegate {
 extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var numberOfItemsPerRow: CGFloat = 1
-        var heightOfTheCell: CGFloat = 250
+        let heightOfTheCell: CGFloat = 250
         let orientation = UIApplication.shared.statusBarOrientation
         let leftAndRightPaddings: CGFloat = 10
         if orientation == .portrait {

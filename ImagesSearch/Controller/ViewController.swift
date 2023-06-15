@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var roundView: UIView!
-    var imageManager = ImageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +24,9 @@ class ViewController: UIViewController {
         }
         searchButton.layer.cornerRadius = 7
         searchBar.delegate = self
-//        searchBar.barTintColor =  .clear
         
         // Remove the opaque background view
-        searchBar.backgroundImage = UIImage()
-        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-            textField.backgroundColor = UIColor.clear
-        }
-        imageManager.fetchImages(using: "go")
+        searchBar.makeTransparent()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         view.addGestureRecognizer(tapGesture)
@@ -41,7 +34,6 @@ class ViewController: UIViewController {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true) // Dismiss the keyboard
-        // Replace 'textField' with the actual reference to your text field
         searchBar.resignFirstResponder() // Deselect the text field
     }
 
@@ -60,7 +52,4 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UISearchBarDelegate {
-    
 }
-
-

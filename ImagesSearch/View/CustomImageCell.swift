@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomImageCell: UICollectionViewCell {
+final class CustomImageCell: UICollectionViewCell {
     @IBOutlet weak var buttonOutlet: UIButton!
     static let identifier = "CustomImageCell"
     @IBOutlet weak var imageView: UIImageView!
