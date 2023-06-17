@@ -54,11 +54,7 @@ final class ZoomViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func loadImage() {
-        guard let imageURL = imageURL else {
-            return
-        }
-        
-        guard let url = URL(string: imageURL) else {
+        guard let imageURL = imageURL, let url = URL(string: imageURL) else {
             return
         }
         

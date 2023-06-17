@@ -16,14 +16,8 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        roundView.layer.cornerRadius = 7
-        if #available(iOS 13.0, *) {
-            roundView.backgroundColor = .systemGray4
-        } else {
-            // Fallback on earlier versions
-        }
+        roundView.roundGrayView()
         searchButton.layer.cornerRadius = 7
-        searchBar.delegate = self
         
         // Remove the opaque background view
         searchBar.makeTransparent()
@@ -38,18 +32,11 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "fromMainToSearchResults", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromMainToSearchResults" {
-            if let destinationViewController = segue.destination as? SearchResultsViewController,
-               let text = searchBar.text {
-                destinationViewController.userInput = text
-            }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let searchResultsViewController = storyboard.instantiateViewController(withIdentifier: "SearchResultsViewController") as? SearchResultsViewController,
+           let text = searchBar.text {
+            searchResultsViewController.userInput = text
+            self.navigationController?.pushViewController(searchResultsViewController, animated: true)
         }
     }
-}
-
-extension ViewController: UISearchBarDelegate {
 }

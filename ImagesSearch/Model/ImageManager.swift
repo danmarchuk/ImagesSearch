@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import Foundation
-
-import Foundation
 
 protocol ImageManagerDelegate {
     func didLoadImages(_ manager: ImageManager, images: [String])

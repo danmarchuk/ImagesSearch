@@ -21,8 +21,6 @@ extension UIButton {
         self.layer.borderWidth = 1.0
         if #available(iOS 13.0, *) {
             self.layer.borderColor = UIColor.systemGray4.cgColor
-        } else {
-            // Fallback on earlier versions
         }
         self.layer.cornerRadius = 7
     }
@@ -38,8 +36,6 @@ extension UIView {
         self.layer.cornerRadius = 7
         if #available(iOS 13.0, *) {
             self.backgroundColor = .systemGray4
-        } else {
-            self.backgroundColor = .gray
         }
     }
 }

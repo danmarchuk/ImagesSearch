@@ -159,7 +159,7 @@
         <!--Search Results View Controller-->
         <scene sceneID="gif-j3-lBt">
             <objects>
-                <viewController id="fex-Nu-7UU" customClass="SearchResultsViewController" customModule="ImagesSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fex-Nu-7UU" customClass="SearchResultsViewController" customModule="ImagesSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yX7-RN-Uv5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="1731" y="1"/>
         </scene>
-        <!--Image Paige View Controller-->
+        <!--Image Page View Controller-->
         <scene sceneID="YI4-mW-W8s">
             <objects>
-                <viewController id="7qs-UH-9CP" customClass="ImagePaigeViewController" customModule="ImagesSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImagePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7qs-UH-9CP" customClass="ImagePageViewController" customModule="ImagesSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="esx-3b-DBk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

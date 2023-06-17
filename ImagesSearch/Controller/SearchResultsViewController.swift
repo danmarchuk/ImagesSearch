@@ -14,7 +14,7 @@ final class SearchResultsViewController: UIViewController {
     lazy var userInput: String = ""
     var imagesArr: [String] = []
     let imageManager = ImageManager()
-    let imagePageViewController = ImagePaigeViewController()
+    let imagePageViewController = ImagePageViewController()
     var selectedImageUrl: String = ""
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -54,17 +54,6 @@ final class SearchResultsViewController: UIViewController {
         imageManager.delegate = self
         imagePageViewController.delegate = self
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromSearchResultsToImagePaige" {
-            if let destinationViewController = segue.destination as? ImagePaigeViewController {
-                destinationViewController.imagesArr = imagesArr
-                destinationViewController.delegate = self
-                destinationViewController.userInput = searchBar.text ?? ""
-                destinationViewController.clickedImageUrl = selectedImageUrl
-            }
-        }
-    }
 }
 
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -74,7 +63,7 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomImageCell.identifier, for: indexPath) as? CustomImageCell else {
-            fatalError("Could not dequeue CustomImageCell")
+            return UICollectionViewCell()
         }
         let imageURL = imagesArr[indexPath.row]
         cell.imageView?.sd_setImage(with: URL(string: imageURL), completed: nil)
@@ -89,7 +78,19 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         let selectedItem = indexPath.row
         selectedImageUrl = imagesArr[selectedItem]
         imagesArr.remove(at: selectedItem)
-        performSegue(withIdentifier: "fromSearchResultsToImagePaige", sender: self)
+        goToImagePageViewController()
+    }
+    
+    func goToImagePageViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let imagePageViewController = storyboard.instantiateViewController(withIdentifier: "ImagePageViewController") as? ImagePageViewController,
+           let text = searchBar.text {
+            imagePageViewController.imagesArr = imagesArr
+            imagePageViewController.delegate = self
+            imagePageViewController.userInput = text
+            imagePageViewController.clickedImageUrl = selectedImageUrl
+            self.navigationController?.pushViewController(imagePageViewController, animated: true)
+        }
     }
 }
 
@@ -130,7 +131,7 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension SearchResultsViewController: ImagePaigeDelegate {
+extension SearchResultsViewController: ImagePageDelegate {
     func updateVariable(newVariable: String) {
         searchBar.text = newVariable
         imageManager.fetchImages(using: newVariable.replacingOccurrences(of: " ", with: "+"))

@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 import SDWebImage
 
-protocol ImagePaigeDelegate: AnyObject {
+protocol ImagePageDelegate: AnyObject {
     func updateVariable(newVariable: String)
 }
 
-final class ImagePaigeViewController: UIViewController {
+final class ImagePageViewController: UIViewController {
     
     var imagesArr: [String] = []
     lazy var clickedImageUrl: String = ""
     lazy var userInput: String = ""
     let imageManager = ImageManager()
-    weak var delegate: ImagePaigeDelegate?
+    weak var delegate: ImagePageDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -74,14 +74,14 @@ final class ImagePaigeViewController: UIViewController {
     }
 }
 
-extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ImagePageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomImageCell.identifier, for: indexPath) as? CustomImageCell else {
-            fatalError("Could not dequeue CustomImageCell")
+            return UICollectionViewCell()
         }
         
         cell.buttonOutlet.isHidden = true
@@ -94,7 +94,7 @@ extension ImagePaigeViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension ImagePaigeViewController: UICollectionViewDelegateFlowLayout {
+extension ImagePageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let leftAndRightPaddings: CGFloat = 10.0
         let numberOfItemsPerRow: CGFloat = 2.0
@@ -105,7 +105,7 @@ extension ImagePaigeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ImagePaigeViewController: UISearchBarDelegate {
+extension ImagePageViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchBarInput = searchBar.text else {return}
         delegate?.updateVariable(newVariable: searchBarInput)
