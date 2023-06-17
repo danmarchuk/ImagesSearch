@@ -133,7 +133,6 @@
                         <outlet property="searchBar" destination="fnA-qf-itH" id="mct-zL-ccj"/>
                         <outlet property="searchButton" destination="Frf-1c-kRI" id="uk3-Hk-HMd"/>
                         <outlet property="searchDisplayController" destination="d41-GG-gQv" id="6DN-bo-uVN"/>
-                        <segue destination="fex-Nu-7UU" kind="show" identifier="fromMainToSearchResults" id="7Rh-R8-8GK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -250,7 +249,6 @@
                         <outlet property="searchBar" destination="WKB-UV-gOY" id="weO-SY-cwg"/>
                         <outlet property="searchDisplayController" destination="eIX-za-pjF" id="OhE-UX-9j9"/>
                         <outlet property="settingsButton" destination="GcX-Qy-5Ys" id="7B3-SL-8iP"/>
-                        <segue destination="7qs-UH-9CP" kind="show" identifier="fromSearchResultsToImagePaige" id="MuW-Br-N8t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYN-g5-CCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
