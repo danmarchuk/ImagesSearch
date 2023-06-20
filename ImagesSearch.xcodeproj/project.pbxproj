@@ -10,6 +10,7 @@
 		66724ED05437D97C1C02AFB0 /* Pods_ImagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE267ED4D763F2638EEF0DE /* Pods_ImagesSearch.framework */; };
 		93190C402A3A77E900B80290 /* FuncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93190C3F2A3A77E900B80290 /* FuncManager.swift */; };
 		93190C452A3A817900B80290 /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93190C442A3A817900B80290 /* ZoomViewController.swift */; };
+		933BE6BD2A420553002FCC3B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 933BE6BC2A420553002FCC3B /* README.md */; };
 		935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A07462A2100F900D617B4 /* CustomImageCell.swift */; };
 		935A07492A2100F900D617B4 /* CustomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935A07472A2100F900D617B4 /* CustomImageCell.xib */; };
 		935A07502A21089600D617B4 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A074F2A21089600D617B4 /* ImageManager.swift */; };
@@ -29,6 +30,7 @@
 		2C44009BFC1362E8CDC4A348 /* Pods-ImagesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesSearch.debug.xcconfig"; path = "Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		93190C3F2A3A77E900B80290 /* FuncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncManager.swift; sourceTree = "<group>"; };
 		93190C442A3A817900B80290 /* ZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
+		933BE6BC2A420553002FCC3B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		935A07462A2100F900D617B4 /* CustomImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageCell.swift; sourceTree = "<group>"; };
 		935A07472A2100F900D617B4 /* CustomImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomImageCell.xib; sourceTree = "<group>"; };
 		935A074F2A21089600D617B4 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		937C18DA2A1E5ACD00516A77 = {
 			isa = PBXGroup;
 			children = (
+				933BE6BC2A420553002FCC3B /* README.md */,
 				937C18E52A1E5ACD00516A77 /* ImagesSearch */,
 				937C18E42A1E5ACD00516A77 /* Products */,
 				DFDB42854DC68A08DF02984B /* Pods */,
@@ -204,6 +207,7 @@
 			files = (
 				937C18F32A1E5ACE00516A77 /* LaunchScreen.storyboard in Resources */,
 				937C18F02A1E5ACE00516A77 /* Assets.xcassets in Resources */,
+				933BE6BD2A420553002FCC3B /* README.md in Resources */,
 				935A07492A2100F900D617B4 /* CustomImageCell.xib in Resources */,
 				937C18EE2A1E5ACD00516A77 /* Main.storyboard in Resources */,
 			);
