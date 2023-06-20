@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CropViewController
 
 final class ZoomViewController: UIViewController, UIScrollViewDelegate {
     
@@ -39,6 +40,11 @@ final class ZoomViewController: UIViewController, UIScrollViewDelegate {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(imageView)
         
+        if #available(iOS 13.0, *) {
+            let cropButton = UIBarButtonItem(image: UIImage(systemName: "crop"), style: .plain, target: self, action: #selector(cropButtonTapped))
+            navigationItem.rightBarButtonItem = cropButton
+        }
+
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -63,5 +69,21 @@ final class ZoomViewController: UIViewController, UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
+    }
+    
+    @objc func cropButtonTapped() {
+        guard let image = imageView.image else {
+            return
+        }
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        present(cropViewController, animated: true, completion: nil)
+    }
+}
+
+extension ZoomViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        dismiss(animated: true)
+        FuncManager.presentAlertMessage(image: image, on: self)
     }
 }

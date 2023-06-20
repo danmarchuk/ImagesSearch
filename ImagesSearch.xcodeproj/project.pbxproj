@@ -3,16 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66724ED05437D97C1C02AFB0 /* Pods_ImagesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE267ED4D763F2638EEF0DE /* Pods_ImagesSearch.framework */; };
 		93190C402A3A77E900B80290 /* FuncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93190C3F2A3A77E900B80290 /* FuncManager.swift */; };
 		93190C452A3A817900B80290 /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93190C442A3A817900B80290 /* ZoomViewController.swift */; };
 		935A07482A2100F900D617B4 /* CustomImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A07462A2100F900D617B4 /* CustomImageCell.swift */; };
 		935A07492A2100F900D617B4 /* CustomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935A07472A2100F900D617B4 /* CustomImageCell.xib */; };
-		935A074C2A2106C400D617B4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 935A074B2A2106C400D617B4 /* SDWebImage */; };
-		935A074E2A2106C400D617B4 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 935A074D2A2106C400D617B4 /* SDWebImageMapKit */; };
 		935A07502A21089600D617B4 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A074F2A21089600D617B4 /* ImageManager.swift */; };
 		935A07522A210B3D00D617B4 /* ImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A07512A210B3D00D617B4 /* ImagesData.swift */; };
 		935A07542A210F6B00D617B4 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A07532A210F6B00D617B4 /* SearchResultsViewController.swift */; };
@@ -27,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C44009BFC1362E8CDC4A348 /* Pods-ImagesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesSearch.debug.xcconfig"; path = "Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		93190C3F2A3A77E900B80290 /* FuncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncManager.swift; sourceTree = "<group>"; };
 		93190C442A3A817900B80290 /* ZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
 		935A07462A2100F900D617B4 /* CustomImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageCell.swift; sourceTree = "<group>"; };
@@ -44,6 +44,8 @@
 		937C18F42A1E5ACE00516A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93D556752A2664C1001141E0 /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
 		93FACFCB2A2A67D2000538D6 /* Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customization.swift; sourceTree = "<group>"; };
+		DA122FD4D248D4A12AF2B7BB /* Pods-ImagesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesSearch.release.xcconfig"; path = "Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch.release.xcconfig"; sourceTree = "<group>"; };
+		DEE267ED4D763F2638EEF0DE /* Pods_ImagesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935A074E2A2106C400D617B4 /* SDWebImageMapKit in Frameworks */,
-				935A074C2A2106C400D617B4 /* SDWebImage in Frameworks */,
+				66724ED05437D97C1C02AFB0 /* Pods_ImagesSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +98,8 @@
 			children = (
 				937C18E52A1E5ACD00516A77 /* ImagesSearch */,
 				937C18E42A1E5ACD00516A77 /* Products */,
+				DFDB42854DC68A08DF02984B /* Pods */,
+				A7C9FDEFEED57A0DF2C6A845 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +125,23 @@
 			path = ImagesSearch;
 			sourceTree = "<group>";
 		};
+		A7C9FDEFEED57A0DF2C6A845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEE267ED4D763F2638EEF0DE /* Pods_ImagesSearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFDB42854DC68A08DF02984B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C44009BFC1362E8CDC4A348 /* Pods-ImagesSearch.debug.xcconfig */,
+				DA122FD4D248D4A12AF2B7BB /* Pods-ImagesSearch.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,19 +149,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 937C18F72A1E5ACE00516A77 /* Build configuration list for PBXNativeTarget "ImagesSearch" */;
 			buildPhases = (
+				2CE9FA1E6481BD12AB1B75CA /* [CP] Check Pods Manifest.lock */,
 				937C18DF2A1E5ACD00516A77 /* Sources */,
 				937C18E02A1E5ACD00516A77 /* Frameworks */,
 				937C18E12A1E5ACD00516A77 /* Resources */,
+				7586F765FB2847CB2B25E37E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ImagesSearch;
-			packageProductDependencies = (
-				935A074B2A2106C400D617B4 /* SDWebImage */,
-				935A074D2A2106C400D617B4 /* SDWebImageMapKit */,
-			);
 			productName = ImagesSearch;
 			productReference = 937C18E32A1E5ACD00516A77 /* ImagesSearch.app */;
 			productType = "com.apple.product-type.application";
@@ -162,7 +180,7 @@
 				};
 			};
 			buildConfigurationList = 937C18DE2A1E5ACD00516A77 /* Build configuration list for PBXProject "ImagesSearch" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -170,9 +188,6 @@
 				Base,
 			);
 			mainGroup = 937C18DA2A1E5ACD00516A77;
-			packageReferences = (
-				935A074A2A2106C400D617B4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-			);
 			productRefGroup = 937C18E42A1E5ACD00516A77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CE9FA1E6481BD12AB1B75CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImagesSearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7586F765FB2847CB2B25E37E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImagesSearch/Pods-ImagesSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		937C18DF2A1E5ACD00516A77 /* Sources */ = {
@@ -353,6 +410,7 @@
 		};
 		937C18F82A1E5ACE00516A77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C44009BFC1362E8CDC4A348 /* Pods-ImagesSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -361,11 +419,11 @@
 				DEVELOPMENT_TEAM = 63ZB4894ZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImagesSearch/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Do you want to be able to download photos?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,6 +440,7 @@
 		};
 		937C18F92A1E5ACE00516A77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA122FD4D248D4A12AF2B7BB /* Pods-ImagesSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -390,11 +449,11 @@
 				DEVELOPMENT_TEAM = 63ZB4894ZK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImagesSearch/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Do you want to be able to download photos?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,30 +490,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		935A074A2A2106C400D617B4 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		935A074B2A2106C400D617B4 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 935A074A2A2106C400D617B4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		935A074D2A2106C400D617B4 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 935A074A2A2106C400D617B4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 937C18DB2A1E5ACD00516A77 /* Project object */;
 }

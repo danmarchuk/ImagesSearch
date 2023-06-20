@@ -35,13 +35,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zabierz swoich odbiorców na wizualną przygodę" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN4-h3-PK0">
-                                        <rect key="frame" x="30" y="141.33333333333334" width="333" height="129.00000000000003"/>
+                                        <rect key="frame" x="30" y="106.66666666666666" width="333" height="129"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-WF-tq9">
-                                        <rect key="frame" x="20" y="392" width="353" height="52"/>
+                                        <rect key="frame" x="20" y="322.33333333333331" width="353" height="52"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Viv-9l-juZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="52"/>
@@ -76,7 +76,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frf-1c-kRI">
-                                        <rect key="frame" x="20" y="565.33333333333337" width="353" height="52"/>
+                                        <rect key="frame" x="20" y="461.33333333333337" width="353" height="52"/>
                                         <color key="backgroundColor" name="purpleSearch"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="CL0-7e-b4D"/>
@@ -91,6 +91,24 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aox-pD-qCo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R69-1x-Lag">
+                                        <rect key="frame" x="101.00000000000001" y="600" width="191.33333333333337" height="52"/>
+                                        <color key="backgroundColor" name="purpleSearch"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="oSf-PP-rNv"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="Search">
+                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="small"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="Crop Local Images" imagePadding="8">
+                                            <imageReference key="image" image="crop" catalog="system" symbolScale="small"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cropButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6nc-nw-WYp"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo by Free-Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D4-Y9-gYB">
@@ -518,6 +536,7 @@
     </scenes>
     <resources>
         <image name="P" width="19" height="24"/>
+        <image name="crop" catalog="system" width="128" height="116"/>
         <image name="downArrow" width="9" height="5.3333334922790527"/>
         <image name="download" width="13.666666984558105" height="16"/>
         <image name="grayforeground" width="375" height="812"/>
