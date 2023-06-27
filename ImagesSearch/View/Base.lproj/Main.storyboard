@@ -362,12 +362,29 @@
                                                     <action selector="zoomButtonClicked:" destination="7qs-UH-9CP" eventType="touchUpInside" id="ED4-Qr-6A1"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-yl-LnC">
+                                                <rect key="frame" x="341" y="154" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="1le-qn-vFf"/>
+                                                    <constraint firstAttribute="width" constant="32" id="SPP-fR-PgI"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="crop"/>
+                                                <connections>
+                                                    <action selector="cropButtonClicked:" destination="7qs-UH-9CP" eventType="touchUpInside" id="z92-um-avd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="tk3-Uj-z1o" secondAttribute="bottom" constant="16" id="2cp-fw-LO2"/>
+                                            <constraint firstAttribute="bottom" secondItem="tk3-Uj-z1o" secondAttribute="bottom" constant="16" id="DOv-2R-e2J"/>
                                             <constraint firstAttribute="trailing" secondItem="Ndm-dL-6UN" secondAttribute="trailing" id="DXs-8B-PHy"/>
+                                            <constraint firstItem="tk3-Uj-z1o" firstAttribute="top" secondItem="fBf-yl-LnC" secondAttribute="bottom" constant="16" id="JT6-Mx-qe9"/>
                                             <constraint firstAttribute="trailing" secondItem="tk3-Uj-z1o" secondAttribute="trailing" constant="20" id="Reb-9i-fmI"/>
+                                            <constraint firstAttribute="trailing" secondItem="fBf-yl-LnC" secondAttribute="trailing" constant="20" id="ST1-sz-tjH"/>
+                                            <constraint firstAttribute="trailing" secondItem="tk3-Uj-z1o" secondAttribute="trailing" constant="20" id="ggV-NX-eZr"/>
                                             <constraint firstItem="Ndm-dL-6UN" firstAttribute="top" secondItem="4sM-bm-7VQ" secondAttribute="top" id="mWj-HM-24q"/>
                                             <constraint firstAttribute="bottom" secondItem="Ndm-dL-6UN" secondAttribute="bottom" id="rSZ-7B-czQ"/>
                                             <constraint firstItem="Ndm-dL-6UN" firstAttribute="leading" secondItem="4sM-bm-7VQ" secondAttribute="leading" id="vfL-qT-EpI"/>
@@ -490,6 +507,7 @@
                     <navigationItem key="navigationItem" id="QMa-Ry-qWo"/>
                     <connections>
                         <outlet property="collectionView" destination="JbV-md-u8c" id="80b-ml-dD5"/>
+                        <outlet property="cropButtonOutlet" destination="fBf-yl-LnC" id="CUy-Lf-1f4"/>
                         <outlet property="mainImage" destination="Ndm-dL-6UN" id="tbN-PX-NDB"/>
                         <outlet property="pButton" destination="57U-IY-WFI" id="3YW-Be-ShY"/>
                         <outlet property="roundView" destination="SC3-eO-tSH" id="vUg-1s-eT9"/>
@@ -536,6 +554,7 @@
     </scenes>
     <resources>
         <image name="P" width="19" height="24"/>
+        <image name="crop" width="18" height="18.333333969116211"/>
         <image name="crop" catalog="system" width="128" height="116"/>
         <image name="downArrow" width="9" height="5.3333334922790527"/>
         <image name="download" width="13.666666984558105" height="16"/>

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SDWebImage
+import CropViewController
 
 protocol ImagePageDelegate: AnyObject {
     func updateVariable(newVariable: String)
@@ -28,6 +29,7 @@ final class ImagePageViewController: UIViewController {
     @IBOutlet weak var pButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var zoomButtonOutlet: UIButton!
+    @IBOutlet weak var cropButtonOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,7 @@ final class ImagePageViewController: UIViewController {
         settingsButton.addBorder()
         shareButton.addBlueBorder()
         zoomButtonOutlet.setTitle("", for: .normal)
+        cropButtonOutlet.setTitle("", for: .normal)
         mainImage.sd_setImage(with: URL(string: clickedImageUrl))
     }
     
@@ -64,6 +67,17 @@ final class ImagePageViewController: UIViewController {
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
     }
+    
+    @IBAction func cropButtonClicked(_ sender: UIButton) {
+        guard let image = mainImage.image else {
+            return
+        }
+        
+        let cropViewController = CropViewController(image: image)
+        cropViewController.delegate = self
+        present(cropViewController, animated: true, completion: nil)
+    }
+    
     
     @IBAction func zoomButtonClicked(_ sender: UIButton) {
         let imageViewController = ZoomViewController()
@@ -111,5 +125,12 @@ extension ImagePageViewController: UISearchBarDelegate {
         delegate?.updateVariable(newVariable: searchBarInput)
         searchBar.resignFirstResponder()
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ImagePageViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        dismiss(animated: true)
+        FuncManager.presentAlertMessage(image: image, on: self)
     }
 }
